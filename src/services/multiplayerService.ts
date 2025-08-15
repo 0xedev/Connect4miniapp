@@ -1,4 +1,10 @@
-import { io, Socket } from "socket.io-client";
+import   // Initialize connection to the Socket.IO server
+  connect(serverUrl?: string): Promise<void> {
+    const defaultUrl = process.env.REACT_APP_BACKEND_URL || 
+                      (process.env.NODE_ENV === 'production' ? 
+                       'https://your-backend.railway.app' : 
+                       'http://localhost:3001');
+    serverUrl = serverUrl || defaultUrl;io, Socket } from "socket.io-client";
 import { GameRoom, Player, Spectator, GameMove } from "../types/multiplayer";
 
 class MultiplayerService {

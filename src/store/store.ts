@@ -3,13 +3,15 @@ import {
   configureStore,
   Middleware,
   PreloadedState,
-} from '@reduxjs/toolkit';
-import { modalReducer } from './modalSlice';
-import { gameReducer } from './gameSlice';
+} from "@reduxjs/toolkit";
+import { modalReducer } from "./modalSlice";
+import { gameReducer } from "./gameSlice";
+import multiplayerReducer from "./multiplayerSlice";
 
 const rootReducer = combineReducers({
   modal: modalReducer,
   game: gameReducer,
+  multiplayer: multiplayerReducer,
 });
 
 export function setupStore(preloadedState?: PreloadedState<RootState>) {
@@ -23,7 +25,7 @@ export function setupStore(preloadedState?: PreloadedState<RootState>) {
 const localStorageMiddleware: Middleware = ({ getState }) => {
   return (next) => (action) => {
     const result = next(action);
-    localStorage.setItem('connectFourGameSettigns', JSON.stringify(getState()));
+    localStorage.setItem("connectFourGameSettigns", JSON.stringify(getState()));
     return result;
   };
 };
@@ -31,8 +33,8 @@ const localStorageMiddleware: Middleware = ({ getState }) => {
 // Rehydration function
 
 const reHydrateStore = () => {
-  if (localStorage.getItem('connectFourGameSettigns') !== null) {
-    return JSON.parse(localStorage.getItem('connectFourGameSettigns')!); // re-hydrate the store
+  if (localStorage.getItem("connectFourGameSettigns") !== null) {
+    return JSON.parse(localStorage.getItem("connectFourGameSettigns")!); // re-hydrate the store
   }
 };
 

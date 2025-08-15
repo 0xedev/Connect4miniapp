@@ -24,7 +24,22 @@ export function renderWithProviders(
     preloadedState = {},
     // Automatically create a store instance if no store was passed in
     store = configureStore({
-      reducer: { game: gameReducer, modal: modalReducer },
+      reducer: { 
+        game: gameReducer, 
+        modal: modalReducer,
+        multiplayer: (state = {
+          currentRoom: null,
+          currentPlayer: null,
+          voiceChat: {
+            isEnabled: false,
+            isMuted: true,
+            isConnected: false,
+            participantCount: 0,
+          },
+          isConnected: false,
+          error: null,
+        }) => state
+      },
       preloadedState,
     }),
     ...renderOptions

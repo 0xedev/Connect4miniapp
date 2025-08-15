@@ -1,9 +1,9 @@
-// /Users/user/Desktop/Projects/connect-four-game/src/App.tsx
 import React, { useEffect, useState } from "react"; // Import useEffect and useState
 import { Routes, Route, useLocation } from "react-router-dom";
 import MainMenu from "./pages/MainMenu";
 import Rules from "./pages/Rules";
 import Game from "./pages/Game";
+import Multiplayer from "./pages/Multiplayer";
 import { AnimatePresence } from "framer-motion";
 import Modal from "./components/UI/modal/Modal";
 import MenuWrapper from "./components/UI/menuWrapper/MenuWrapper";
@@ -155,6 +155,7 @@ function App() {
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<MainMenu />} />
           <Route path="/rules" element={<Rules />} />
+          <Route path="/multiplayer" element={<Multiplayer />} />
           <Route
             path="/game"
             element={gameIsRunning ? <Game /> : <MainMenu />}

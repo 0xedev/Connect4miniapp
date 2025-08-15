@@ -1,19 +1,19 @@
-import React from 'react';
+import React from "react";
 
 import {
   MenuCtxWrapper,
   ButtonsWrapper,
   ButtonCtxWrapper,
   BtnText,
-} from './MainMenuContextStyles';
-import { MenuButton } from '../UI/menuButton/MenuButton';
-import { ReactComponent as Logo } from '../../assets/images/logo.svg';
-import { ReactComponent as CPUMode } from '../../assets/images/player-vs-cpu.svg';
-import { ReactComponent as PVPMode } from '../../assets/images/player-vs-player.svg';
-import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../../store/hooks';
-import { startGame } from '../../store/gameSlice';
-import { toggleModal } from '../../store/modalSlice';
+} from "./MainMenuContextStyles";
+import { MenuButton } from "../UI/menuButton/MenuButton";
+import { ReactComponent as Logo } from "../../assets/images/logo.svg";
+import { ReactComponent as CPUMode } from "../../assets/images/player-vs-cpu.svg";
+import { ReactComponent as PVPMode } from "../../assets/images/player-vs-player.svg";
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../../store/hooks";
+import { startGame } from "../../store/gameSlice";
+import { toggleModal } from "../../store/modalSlice";
 
 const MainMenuContext: React.FC = () => {
   const navigate = useNavigate();
@@ -21,16 +21,20 @@ const MainMenuContext: React.FC = () => {
 
   // Game Rules button handler
   const gameRulesHandler = () => {
-    navigate('/rules');
+    navigate("/rules");
   };
   // PvP mode button handler
   const PvPhandler = () => {
-    dispatch(startGame('PvP'));
-    navigate('/game');
+    dispatch(startGame("PvP"));
+    navigate("/game");
   };
   // CPUvP mode button handler
   const CPUvPHandler = () => {
-    dispatch(toggleModal('mainMenu'));
+    dispatch(toggleModal("mainMenu"));
+  };
+  // Multiplayer mode button handler
+  const multiplayerHandler = () => {
+    navigate("/multiplayer");
   };
 
   return (
@@ -46,6 +50,16 @@ const MainMenuContext: React.FC = () => {
         <MenuButton bgColor="yellow" textcolor="black" onClick={PvPhandler}>
           <ButtonCtxWrapper>
             <BtnText>play vs player</BtnText>
+            <PVPMode />
+          </ButtonCtxWrapper>
+        </MenuButton>
+        <MenuButton
+          bgColor="red"
+          textcolor="white"
+          onClick={multiplayerHandler}
+        >
+          <ButtonCtxWrapper>
+            <BtnText>multiplayer rooms</BtnText>
             <PVPMode />
           </ButtonCtxWrapper>
         </MenuButton>

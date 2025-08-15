@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@daily-co/daily-js": "^0.82.0",
     "@farcaster/frame-node": "^0.0.21",
     "@farcaster/frame-sdk": "^0.0.35",
     "@reduxjs/toolkit": "^1.8.6",
@@ -13,6 +14,7 @@
     "@types/node": "^16.11.64",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
+    "@types/uuid": "^10.0.0",
     "comlink": "^4.3.1",
     "framer-motion": "^7.5.3",
     "react": "^18.2.0",
@@ -21,8 +23,10 @@
     "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
     "redux": "^4.2.0",
+    "socket.io-client": "^4.8.1",
     "styled-components": "^5.3.6",
     "typescript": "^4.8.4",
+    "uuid": "^11.1.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

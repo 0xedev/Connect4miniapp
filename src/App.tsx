@@ -73,7 +73,7 @@ function App() {
       // Customize the text and embeds based on game state (win/loss, score, etc.)
       const castText = `I just played Connect Four within Farcaster! Want to play?`;
 
-      const appUrl = "https://connect-4-gamma-lake.vercel.app"; // Replace with your deployed app URL
+      const appUrl = "https://connect-4-gamma-lake.vercel.app";
 
       const castResult = await sdk.actions.composeCast({
         text: castText,

@@ -9,7 +9,7 @@ class VoiceChatService {
     if (this.isInitialized) return;
 
     try {
-      // Create a simple iframe without complex theming
+      // Create a simple iframe without complex theming to avoid TypeScript errors
       this.daily = DailyIframe.createFrame();
 
       this.isInitialized = true;

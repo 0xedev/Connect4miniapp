@@ -1,22 +1,22 @@
-import   // Initialize connection to the Socket.IO server
-  connect(serverUrl?: string): Promise<void> {
-    const defaultUrl = process.env.REACT_APP_BACKEND_URL || 
-                      (process.env.NODE_ENV === 'production' ? 
-                       'https://your-backend.railway.app' : 
-                       'http://localhost:3001');
-    serverUrl = serverUrl || defaultUrl;io, Socket } from "socket.io-client";
-import { GameRoom, Player, Spectator, GameMove } from "../types/multiplayer";
+import { io, Socket } from 'socket.io-client';
+import { GameRoom, Player, Spectator, GameMove } from '../types/multiplayer';
 
 class MultiplayerService {
   private socket: Socket | null = null;
   private currentRoom: string | null = null;
 
   // Initialize connection to the Socket.IO server
-  connect(serverUrl: string = "http://localhost:3001"): Promise<void> {
+  connect(serverUrl?: string): Promise<void> {
+    const defaultUrl = process.env.REACT_APP_BACKEND_URL || 
+                      (process.env.NODE_ENV === 'production' ? 
+                       'https://your-backend.railway.app' : 
+                       'http://localhost:3001');
+    
+    const url = serverUrl || defaultUrl;
     return new Promise((resolve, reject) => {
       try {
-        this.socket = io(serverUrl, {
-          transports: ["websocket", "polling"],
+        this.socket = io(url, {
+          transports: ['websocket', 'polling'],
         });
 
         this.socket.on("connect", () => {
@@ -24,7 +24,7 @@ class MultiplayerService {
           resolve();
         });
 
-        this.socket.on("connect_error", (error) => {
+        this.socket.on("connect_error", (error: any) => {
           console.error("Connection error:", error);
           reject(error);
         });

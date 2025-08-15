@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: connect4-backend
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    plan: free
+    rootDir: backend
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: ALLOWED_ORIGINS
+        value: https://4tune.vercel.app

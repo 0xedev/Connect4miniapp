@@ -7,12 +7,12 @@
   "frame": {
     "version": "1",
     "name": "connect-4 game",
-    "iconUrl": "https://connect-4-gamma-lake.vercel.app/image.jpg",
-    "homeUrl": "https://connect-4-gamma-lake.vercel.app",
-    "imageUrl": "https://connect-4-gamma-lake.vercel.app/image.jpg",
+    "iconUrl": "https://4tune.vercel.app/image.jpg",
+    "homeUrl": "https://4tune.vercel.app",
+    "imageUrl": "https://4tune.vercel.app/image.jpg",
     "buttonTitle": "Ready?",
-    "splashImageUrl": "https://connect-4-gamma-lake.vercel.app/image.jpg",
+    "splashImageUrl": "https://4tune.vercel.app/image.jpg",
     "splashBackgroundColor": "#5C2DD5",
-    "webhookUrl": "https://connect-4-gamma-lake.vercel.app/api/webhook"
+    "webhookUrl": "https://4tune.vercel.app/api/webhook"
   }
 }

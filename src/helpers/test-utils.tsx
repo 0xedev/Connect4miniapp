@@ -1,19 +1,19 @@
-import React, { PropsWithChildren } from 'react';
-import { render } from '@testing-library/react';
-import type { RenderOptions } from '@testing-library/react';
-import { configureStore } from '@reduxjs/toolkit';
-import type { PreloadedState } from '@reduxjs/toolkit';
-import { Provider } from 'react-redux';
+import React, { PropsWithChildren } from "react";
+import { render } from "@testing-library/react";
+import type { RenderOptions } from "@testing-library/react";
+import { configureStore } from "@reduxjs/toolkit";
+import type { PreloadedState } from "@reduxjs/toolkit";
+import { Provider } from "react-redux";
 
-import type { AppStore, RootState } from '../store/store';
+import type { AppStore, RootState } from "../store/store";
 // As a basic setup, import your same slice reducers
 
-import { gameReducer } from '../store/gameSlice';
-import { modalReducer } from '../store/modalSlice';
+import { gameReducer } from "../store/gameSlice";
+import { modalReducer } from "../store/modalSlice";
 
 // This type interface extends the default options for render from RTL, as well
 // as allows the user to specify other things such as initialState, store.
-interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
+interface ExtendedRenderOptions extends Omit<RenderOptions, "queries"> {
   preloadedState?: PreloadedState<RootState>;
   store?: AppStore;
 }
@@ -24,21 +24,23 @@ export function renderWithProviders(
     preloadedState = {},
     // Automatically create a store instance if no store was passed in
     store = configureStore({
-      reducer: { 
-        game: gameReducer, 
+      reducer: {
+        game: gameReducer,
         modal: modalReducer,
-        multiplayer: (state = {
-          currentRoom: null,
-          currentPlayer: null,
-          voiceChat: {
-            isEnabled: false,
-            isMuted: true,
+        multiplayer: (
+          state = {
+            currentRoom: null,
+            currentPlayer: null,
+            voiceChat: {
+              isEnabled: false,
+              isMuted: true,
+              isConnected: false,
+              participantCount: 0,
+            },
             isConnected: false,
-            participantCount: 0,
-          },
-          isConnected: false,
-          error: null,
-        }) => state
+            error: null,
+          }
+        ) => state,
       },
       preloadedState,
     }),

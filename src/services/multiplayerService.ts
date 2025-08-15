@@ -122,6 +122,13 @@ class MultiplayerService {
     }
   }
 
+  // Start game (host only)
+  startGame(): void {
+    if (this.socket && this.currentRoom) {
+      this.socket.emit("start-game", { roomId: this.currentRoom });
+    }
+  }
+
   // Event listeners
   onRoomUpdate(callback: (room: GameRoom) => void): void {
     this.socket?.on("room-update", callback);
@@ -139,7 +146,7 @@ class MultiplayerService {
     this.socket?.on("player-left", callback);
   }
 
-  onGameStarted(callback: () => void): void {
+  onGameStarted(callback: (room: GameRoom) => void): void {
     this.socket?.on("game-started", callback);
   }
 

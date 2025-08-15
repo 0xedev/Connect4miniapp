@@ -1,0 +1,18 @@
+{
+  "accountAssociation": {
+    "header": "eyJmaWQiOjIzOTM5NiwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweDRENEU1MjIzODRkNkYxMDkwYkZENEM0NTI3YTdkNTJERmQyMGJDYTMifQ",
+    "payload": "eyJkb21haW4iOiJjb25uZWN0LTQtZ2FtbWEtbGFrZS52ZXJjZWwuYXBwIn0",
+    "signature": "MHhlNWU2ZGY5OTY1MWNjOTZlZmZhYjhlYjIxZTBmMmZhNjI5OGVmZTA3YjBkNDNmODBjOTE0NDRmNmI5YWZiMzgyNzZiYzlmMjgyNGIyY2U3ZWE2YzAyZWQ3OTE3ZTgyMjljMGY5NzY5NzgzNjIwMjZmMThjYjMxOGFhNTUxNGI2NTFi"
+  },
+  "frame": {
+    "version": "1",
+    "name": "connect-4 game",
+    "iconUrl": "https://connect-4-gamma-lake.vercel.app/image.jpg",
+    "homeUrl": "https://connect-4-gamma-lake.vercel.app",
+    "imageUrl": "https://connect-4-gamma-lake.vercel.app/image.jpg",
+    "buttonTitle": "Ready?",
+    "splashImageUrl": "https://connect-4-gamma-lake.vercel.app/image.jpg",
+    "splashBackgroundColor": "#5C2DD5",
+    "webhookUrl": "https://connect-4-gamma-lake.vercel.app/api/webhook"
+  }
+}
